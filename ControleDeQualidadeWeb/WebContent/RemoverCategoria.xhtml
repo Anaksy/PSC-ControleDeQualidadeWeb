@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<h:title>Remover Categoria</h:title>
+</h:head>
+<h:body>
+	<h:form>
+	<br></br>
+	Nome da Categogia: <h:inputText value="#{RemoverCategoriaMB.categoria.nomeCategoria}"></h:inputText><br></br>
+	<br></br>
+
+	<h:commandButton value="Remover Categoria" action="#{RemoverCategoriaMB.removerCategoria}" ></h:commandButton>
+	</h:form>
+</h:body>
+	<br></br>
+	<h:outputText value="#{RemoverCategoriaMB.mensagem}"></h:outputText>
+</html>

@@ -31,7 +31,7 @@ import unibratec.controlequalidade.negocio.NegocioVenda;
 public class TesteControleDeQualidade {
 
 	public static void main(String[] args) {
-/*		//############# ENTITY MANAGER ############# 
+	/*	//############# ENTITY MANAGER ############# 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("controleDeQualidadePSC");
 		EntityManager etManager = emf.createEntityManager(); 
 		//############# ENTITY MANAGER #############
@@ -75,8 +75,8 @@ public class TesteControleDeQualidade {
 		} catch (LoteCadastradoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
-		
+		}
+		*/
 		//=========== Alterando Lote
 /*		Lote l0 = new Lote();
 		l0.setNomeLote("LT2015MAI9-T068697x");

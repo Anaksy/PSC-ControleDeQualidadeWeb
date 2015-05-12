@@ -1,26 +1,40 @@
 package unibratec.controlequalidade.negocio;
 
-import java.util.Calendar;
 import java.util.List;
 
 import unibratec.controlequalidade.entidades.Categoria;
-import unibratec.controlequalidade.entidades.Lote;
-import unibratec.controlequalidade.entidades.Produto;
-import unibratec.controlequalidade.exceptions.ProdutoNaoEncontradoExcecption;
-import unibratec.controlequalidade.exceptions.ProdutoNaoPrestesAVencerException;
-import unibratec.controlequalidade.exceptions.dataDeValidadeMenorPermitidaCategoriaException;
+import unibratec.controlequalidade.exceptions.CategoriaCadastradaException;
+import unibratec.controlequalidade.exceptions.CategoriaNaoCadastradaException;
+
 
 public interface IFachada {
 	
-	public void inserirProdutoLote(Produto produto, Lote lote, Calendar dataValidade, int qtdProdutos) throws dataDeValidadeMenorPermitidaCategoriaException;
+	public void inserirCategoria(Categoria categoria) throws CategoriaCadastradaException;
 	
-	public void inserirCategoria(Categoria categoria);
+	public List<Categoria> listaTodasCategorias();
 	
-	public List<Produto> getListaProdutoPrestesVencer() throws ProdutoNaoEncontradoExcecption;
+	public Categoria buscaCategoriaPorNomeCategoria(String nomeCategoria) throws CategoriaNaoCadastradaException;
 	
-	public Produto getProdutoPrestesVencer(Produto produto) throws ProdutoNaoPrestesAVencerException, ProdutoNaoEncontradoExcecption;
-		
-	public void setDescontoProdutoPrestesVencer(Produto produto, double desconto);
+	public Categoria buscaCategoriaPorId(long idCategoria) throws CategoriaNaoCadastradaException;
+	
+	public void alteraCategoria(Categoria categoria, String novoNomeCategoria, long novoNumeroDeDiasParaVencimento) throws CategoriaNaoCadastradaException, CategoriaCadastradaException;
+	
+	public void alteraNomeCategoria(Categoria categoria, String novoNomeCategoria) throws CategoriaCadastradaException, CategoriaNaoCadastradaException;
+	
+	public void alteraDiasParaVencerCategoria(Categoria categoria, long novoNumeroDeDiasParaVencimento) throws CategoriaCadastradaException, CategoriaNaoCadastradaException;
+	
+	public void removeCategoria(Categoria categoria) throws CategoriaNaoCadastradaException;
+	
+
+//	public void inserirProdutoLote(Produto produto, Lote lote, Calendar dataValidade, int qtdProdutos) throws dataDeValidadeMenorPermitidaCategoriaException;
+//	
+//	public List<Produto> getListaProdutoPrestesVencer() throws ProdutoNaoEncontradoExcecption;
+//	
+//	public Produto getProdutoPrestesVencer(Produto produto) throws ProdutoNaoPrestesAVencerException, ProdutoNaoEncontradoExcecption;
+//		
+//	public void setDescontoProdutoPrestesVencer(Produto produto, double desconto);
+	
+ 
 	
 
 }
