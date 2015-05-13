@@ -106,14 +106,14 @@ public class NegocioCategoria {
 			cat.setNomeCategoria(categoria.getNomeCategoria());
 			cat.setNumeroDeDiasParaVencimento(categoria.getNumeroDeDiasParaVencimento());
 
-			if (daoCategoria.existeCategoria(cat)) {
+//			if (daoCategoria.existeCategoria(cat)) {
 
-				throw new CategoriaCadastradaException(MensagensExceptions.CATEGORIA_CADASTRADA_EXCEPTION);
+//				throw new CategoriaCadastradaException(MensagensExceptions.CATEGORIA_CADASTRADA_EXCEPTION);
 
-			} else {
+//			} else {
 
 				daoCategoria.alterar(cat);
-			}
+//			}
 
 		} else {
 

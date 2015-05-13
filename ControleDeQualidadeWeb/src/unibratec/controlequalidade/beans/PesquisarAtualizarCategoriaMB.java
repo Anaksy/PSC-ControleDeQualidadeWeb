@@ -17,6 +17,7 @@ public class PesquisarAtualizarCategoriaMB {
 	private Fachada fachada = new Fachada();
 	private List<Categoria> listaCategoria;
 	private String mensagem;
+	private static long categoriaId;
 
 	public List<Categoria> getListaCategoria() {
 		listaCategoria = fachada.listaTodasCategorias();
@@ -46,9 +47,10 @@ public class PesquisarAtualizarCategoriaMB {
 	public void popularCategoria(Categoria c){
 		try {
 			Categoria CategoriaEncontrada = fachada.buscaCategoriaPorNomeCategoria(c.getNomeCategoria());
-			this.categoria.setIdCategoria(CategoriaEncontrada.getIdCategoria());
-			this.categoria.setNomeCategoria(CategoriaEncontrada.getNomeCategoria());
-			this.categoria.setNumeroDeDiasParaVencimento(CategoriaEncontrada.getNumeroDeDiasParaVencimento());
+			categoria.setIdCategoria(CategoriaEncontrada.getIdCategoria());
+			categoria.setNomeCategoria(CategoriaEncontrada.getNomeCategoria());
+			categoria.setNumeroDeDiasParaVencimento(CategoriaEncontrada.getNumeroDeDiasParaVencimento());
+			categoriaId = CategoriaEncontrada.getIdCategoria();
 		} catch (CategoriaNaoCadastradaException e) {
 			setMensagem("CategoriaNaoCadastradaException");
 			e.printStackTrace();
@@ -57,7 +59,8 @@ public class PesquisarAtualizarCategoriaMB {
 
 	public String atualizarCategoria(){
 		try {
-			fachada.alteraCategoria(this.categoria);
+			categoria.setIdCategoria(categoriaId);
+			fachada.alteraCategoria(categoria);
 			setMensagem(MensagensGui.CATEGORIA_ATUALIZADA_SUCESSO);
 		} catch (CategoriaCadastradaException e) {
 			setMensagem("CategoriaCadastradaException");
