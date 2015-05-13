@@ -51,9 +51,8 @@ public class Fachada implements IFachada {
 	}
 
 	@Override
-	public void alteraCategoria(Categoria categoria, String novoNomeCategoria, long novoNumeroDeDiasParaVencimento)
-			throws CategoriaNaoCadastradaException, CategoriaCadastradaException {
-		this.negocioCategoria.alteraCategoria(categoria, novoNomeCategoria, novoNumeroDeDiasParaVencimento);
+	public void alteraCategoria(Categoria categoria) throws CategoriaNaoCadastradaException, CategoriaCadastradaException {
+		this.negocioCategoria.alteraCategoria(categoria);
 	}
 
 	@Override

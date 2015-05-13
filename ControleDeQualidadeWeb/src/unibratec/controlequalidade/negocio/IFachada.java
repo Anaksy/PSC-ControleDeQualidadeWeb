@@ -17,7 +17,7 @@ public interface IFachada {
 	
 	public Categoria buscaCategoriaPorId(long idCategoria) throws CategoriaNaoCadastradaException;
 	
-	public void alteraCategoria(Categoria categoria, String novoNomeCategoria, long novoNumeroDeDiasParaVencimento) throws CategoriaNaoCadastradaException, CategoriaCadastradaException;
+	public void alteraCategoria(Categoria categoria) throws CategoriaNaoCadastradaException, CategoriaCadastradaException;
 	
 	public void alteraNomeCategoria(Categoria categoria, String novoNomeCategoria) throws CategoriaCadastradaException, CategoriaNaoCadastradaException;
 	

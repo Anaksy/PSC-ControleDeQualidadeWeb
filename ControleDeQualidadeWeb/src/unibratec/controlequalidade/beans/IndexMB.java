@@ -13,14 +13,7 @@ public class IndexMB {
 		return "/RemoverCategoria.xhtml";
 	}
 	
-	public String irAtualizarCategoria(){
-		return "/AtualizarCategoria.xhtml";
+	public String irPesquisarAtualizarCategoria(){
+		return "/PesquisarAtualizarCategoria.xhtml";
 	}
-	
-	public String irPesquisarCategoria(){
-		return "/PesquisarCategoria.xhtml";
-	}
-	
-
-
 }

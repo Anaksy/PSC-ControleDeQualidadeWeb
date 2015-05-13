@@ -97,14 +97,14 @@ public class NegocioCategoria {
 	 * @param novoNumeroDeDiasParaVencimento
 	 * @throws CategoriaCadastradaException
 	 */
-	public void alteraCategoria(Categoria categoria, String novoNomeCategoria, long novoNumeroDeDiasParaVencimento) throws CategoriaNaoCadastradaException, CategoriaCadastradaException{
+	public void alteraCategoria(Categoria categoria) throws CategoriaNaoCadastradaException, CategoriaCadastradaException{
 
-		Categoria cat = daoCategoria.buscaCategoria(categoria.getNomeCategoria());
+		Categoria cat = daoCategoria.consultarPorId(categoria.getIdCategoria());
 
 		if (cat != null) {
 
-			cat.setNomeCategoria(novoNomeCategoria);
-			cat.setNumeroDeDiasParaVencimento(novoNumeroDeDiasParaVencimento);
+			cat.setNomeCategoria(categoria.getNomeCategoria());
+			cat.setNumeroDeDiasParaVencimento(categoria.getNumeroDeDiasParaVencimento());
 
 			if (daoCategoria.existeCategoria(cat)) {
 
