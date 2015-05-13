@@ -6,36 +6,40 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<h:title>Pesquisar/Atualizar Categoria</h:title>
+	<h:title>CRUD Categoria</h:title>
 </h:head>
 <h:body>
+    <p:growl id="msgs" showDetail="true" />
+	
 	<h:form id="formCategoria">
+	<br />
 	Nome da Categoria: <h:inputText
 			value="#{PesquisarAtualizarCategoriaMB.categoria.nomeCategoria}"></h:inputText>
 		<br />
 	Número de dias para vencer: <h:inputText
 			value="#{PesquisarAtualizarCategoriaMB.categoria.numeroDeDiasParaVencimento}"></h:inputText>
-		<br />
+		<br /><br />
+		<h:commandButton value="Criar Categoria" action="#{PesquisarAtualizarCategoriaMB.criarCategoria}" ></h:commandButton>&nbsp;
+		<h:commandButton value="Remover Categoria" action="#{PesquisarAtualizarCategoriaMB.removerCategoria}" ></h:commandButton>&nbsp;
 		<h:commandButton value="Atualizar Categoria" action="#{PesquisarAtualizarCategoriaMB.atualizarCategoria}"></h:commandButton>
-		<br />
+		<br /><br />
 		<h:outputText value="#{PesquisarAtualizarCategoriaMB.mensagem}"></h:outputText>
-		<br />
+		<br /><br />
+		
 		<p:dataTable value="#{PesquisarAtualizarCategoriaMB.listaCategoria}"
 			var="categoria" style="width:80%" styleClass="table table-hover"
 			emptyMessage="Nenhum resultado">
 			<p:column>
-				<f:facet name="header">Nome</f:facet>
+				<f:facet name="header">Nome></f:facet>
 				<h:outputText value="#{categoria.nomeCategoria}"></h:outputText>
 			</p:column>
 			<p:column>
 				<f:facet name="header">Número de dias para vencer</f:facet>
 				<h:outputText value="#{categoria.numeroDeDiasParaVencimento}"></h:outputText>
 			</p:column>
-			<p:column width="300">
-				<f:facet name="header">Popular</f:facet>
-				<h:commandButton value="Popular"
-					action="#{PesquisarAtualizarCategoriaMB.popularCategoria(categoria)}">
-				</h:commandButton> &nbsp;&nbsp;
+			<p:column style= "width=100; text-align: center">
+				<h:commandButton value="Selecionar" action="#{PesquisarAtualizarCategoriaMB.popularCategoria(categoria)}">
+				</h:commandButton> 
 			</p:column>
 		</p:dataTable>
 	</h:form>

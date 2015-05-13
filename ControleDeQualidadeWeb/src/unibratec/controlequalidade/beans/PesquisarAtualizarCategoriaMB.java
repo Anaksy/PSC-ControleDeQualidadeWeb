@@ -43,7 +43,7 @@ public class PesquisarAtualizarCategoriaMB {
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
-	
+
 	public void popularCategoria(Categoria c){
 		try {
 			Categoria CategoriaEncontrada = fachada.buscaCategoriaPorNomeCategoria(c.getNomeCategoria());
@@ -70,10 +70,24 @@ public class PesquisarAtualizarCategoriaMB {
 		}
 		return mensagem;
 	}
-	
-	
 
+	public String criarCategoria(){
+		try {
+			fachada.inserirCategoria(categoria);
+			setMensagem(MensagensGui.CATEGORIA_CADASTRADA_SUCESSO);
+		} catch (CategoriaCadastradaException e) {
+			setMensagem(MensagensGui.CATEGORIA_CADASTRADA_FALHA);
+		}
+		return mensagem;
+	}
 
-
-
+	public String removerCategoria(){
+		try {
+			fachada.removeCategoria(categoria);
+			setMensagem(MensagensGui.CATEGORIA_REMOVIDA_SUCESSO);
+		} catch (CategoriaNaoCadastradaException e) {
+			setMensagem(MensagensGui.CATEGORIA_REMOVIDA_FALHA);
+		}
+		return mensagem;
+	}
 }
