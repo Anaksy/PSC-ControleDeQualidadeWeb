@@ -5,12 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_CATEGORIA")
-@NamedQuery(name="Categoria.findByNome", query="Select c from Categoria c where c.nomeCategoria like :nomeCategoria")
+@NamedQueries({
+	@NamedQuery(name="Categoria.findByNome", query="Select c from Categoria c where c.nomeCategoria like :nomeCategoria"),
+	@NamedQuery(name="Categoria.findByNomeDiferenteId", query="Select c from Categoria c where c.idCategoria <> :idCategoria and c.nomeCategoria like :nomeCategoria")
+})
 
 public class Categoria {
 

@@ -9,4 +9,6 @@ public interface IDAOCategoria extends IDAOGenerico<Categoria> {
 
 	public Categoria buscaCategoria(String nomeCategoria);
 
+	boolean existeCategoriaDiferenteId(Categoria categoria);
+
 }
